@@ -22,6 +22,10 @@ public class PrivacyModel : PageModel
         BlobServiceClient client = new (
             new Uri($"https://stprivatewebspp.blob.core.windows.net"),
             new DefaultAzureCredential());
+
+        BlobContainerClient containerClient = client.GetBlobContainerClient("test");
+        BlobClient blobClient = containerClient.GetBlobClient("TestFileWebApp.txt");
+
     }
 }
 
