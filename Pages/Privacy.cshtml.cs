@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
+using Azure.Identity;
 
 namespace dotnetcoresample.Pages;
 
@@ -14,6 +18,10 @@ public class PrivacyModel : PageModel
 
     public void OnGet()
     {
+        // connect to blob storage and read blob contents
+        BlobServiceClient client = new (
+            new Uri($"https://stprivatewebspp.blob.core.windows.net"),
+            new DefaultAzureCredential());
     }
 }
 
