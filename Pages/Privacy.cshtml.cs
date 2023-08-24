@@ -24,7 +24,7 @@ public class PrivacyModel : PageModel
             new DefaultAzureCredential());
 
         BlobContainerClient containerClient = client.GetBlobContainerClient("test");
-        BlobClient blobClient = containerClient.GetBlobClient("TestFileWebApp.txt");
+        BlobClient blobClient = containerClient.GetBlobClient("TestFileWebApp2.txt");
 
     }
 }
