@@ -18,13 +18,21 @@ public class PrivacyModel : PageModel
 
     public void OnGet()
     {
-        // connect to blob storage and read blob contents
-        BlobServiceClient client = new (
-            new Uri($"https://stprivatewebspp.blob.core.windows.net"),
-            new DefaultAzureCredential());
+        try
+        {
+            // connect to blob storage and read blob contents
+            BlobServiceClient client = new (
+                new Uri($"https://stprivatewebspp2.blob.core.windows.net"),
+                new DefaultAzureCredential());
 
-        BlobContainerClient containerClient = client.GetBlobContainerClient("test");
-        BlobClient blobClient = containerClient.GetBlobClient("TestFileWebApp2.txt");
+            BlobContainerClient containerClient = client.GetBlobContainerClient("test");
+            BlobClient blobClient = containerClient.GetBlobClient("TestFileWebApp2.txt");
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+        
 
     }
 }
